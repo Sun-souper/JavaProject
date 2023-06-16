@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 配置外部文件 -->
+    <properties resource="db.properties"/>
+
+    <!-- 配置日志（log4j官方配置） -->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+    <!-- 根据需要给实体类配置别名 -->
+    <typeAliases>
+        <!--<typeAlias type="com.qf.pojo.User" alias="user"></typeAlias>-->
+        <package name="com.qf.pojo"/>
+    </typeAliases>
+
+    <!-- 官网环境配置 -->
+    <environments default="default">
+        <environment id="default">
+            <transactionManager type="JDBC"/>
+            <dataSource type="com.qf.config.MyDruidDataSourceFactory">
+                <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/java06"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 指定映射配置文件的位置，映射配置文件指的是每个接口独立的配置文件 -->
+    <mappers>
+        <mapper resource="com/qf/mapper/AccountMapper.xml"/>
+        <mapper resource="com/qf/mapper/EmployeeMapper.xml"/>
+    </mappers>
+</configuration>

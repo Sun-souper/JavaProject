@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--配置目标类-->
+    <bean id="userService" class="com.qf.Service.Impl.UserServiceImpl"/>
+    <!--配置切面类-->
+    <bean id="myAspect" class="com.qf.Aspect.MyAspect"/>
+    <!--织入-->
+    <aop:config>
+        <!--配置切面-->
+        <aop:aspect ref="myAspect">
+            <!--配置织入的类-->
+            <aop:before method="myBefore" pointcut="execution(* com.qf.Service.Impl.UserServiceImpl.findById())"/>
+            <aop:around method="myAround" pointcut="execution(* com.qf.Service.Impl.*.*(..))"/>
+
+        </aop:aspect>
+    </aop:config>
+
+</beans>

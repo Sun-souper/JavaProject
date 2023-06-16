@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- settings 对mybatis一些设置 -->
+    <settings>
+        <!-- 开启驼峰转换 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 设置mybatis使用log4j -->
+        <setting name="logImpl" value="LOG4J"/>
+        <!-- 设置二级缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <!-- 类型别名 -->
+    <typeAliases>
+        <!-- 设置包下所有类的别名为类名 -->
+        <package name="com.qf.entity"/>
+    </typeAliases>
+
+    <!-- 插件 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+    </plugins>
+
+</configuration>

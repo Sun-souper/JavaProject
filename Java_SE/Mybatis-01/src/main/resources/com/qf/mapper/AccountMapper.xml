@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.AccountDao">
+    <select id="findAll" resultType="Account">
+        select id,name,money from account
+    </select>
+
+    <!--动态Sql-->
+    <sql id="select">
+        id,name,money
+    </sql>
+
+    <!--where 判断 按照id查询-->
+    <select id="findByID" resultType="Account">
+        select
+        <include refid="select"/>
+        from account
+        <where>
+            id = #{id}
+        </where>
+    </select>
+
+    <!-- if-where -->
+    <select id="find" resultType="Account">
+        select
+        <include refid="select"/>
+        from account
+        <where>
+            1=1
+            <if test="money !=null">
+                and money = #{money}
+            </if>
+        </where>
+    </select>
+
+    <!--set-->
+    <update id="updateAccount">
+        update account
+        <set>
+            <if test="name !=null and name !=''">
+                name =#{name},
+            </if>
+            <if test="money !=null and money!=''">
+                money = #{money}
+            </if>
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
+    <!--foreach-->
+    <delete id="delete">
+        delete from account
+        <where>
+            id in
+            <foreach collection="list" item="id" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </where>
+    </delete>
+
+    <insert id="insertAccount">
+        insert into account(name,money) values(#{name},#{money})
+    </insert>
+
+
+</mapper>

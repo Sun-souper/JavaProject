@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 1 创建业务层对象注入属性 -->
+    <!-- 开启注解扫描 -->
+    <!-- 除了@Controller都扫描 -->
+    <context:component-scan base-package="com.qf">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 2 加载db.properties-->
+    <context:property-placeholder location="classpath:db.properties"/>
+
+    <!-- 3 创建阿里巴巴的数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <!-- 【注意】此处是driverClassName,不是driver -->
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!-- 4 SqlSessionFactory -->
+    <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 给工厂注入数据源,引用上方的数据源 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 让工厂加载mybatis核心配置文件 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+
+        <!-- 如果核心配置文件中没有配置的,也可以在此处单独配置 -->
+        <!-- <property name="typeAliasesPackage" value="com.qf.entity"/>-->
+    </bean>
+
+    <!-- 5 产生mapper代理 -->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 【注意】,此处写的是上方工厂的id,但是参数类型是string -->
+        <property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
+        <!-- 指定mapper所在位置,spring容器就可以创建mapper对象 -->
+        <property name="basePackage" value="com.qf.mapper"/>
+    </bean>
+
+
+
+</beans>

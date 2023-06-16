@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.EmployeeDao">
+    <!--多表联查-->
+    <resultMap id="EmployeeAll" type="Employee">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="r_name" property="region"/>
+        <result property="department" column="d_name"/>
+    </resultMap>
+    <select id="selectEmployee" resultMap="EmployeeAll">
+        select u_id,name,r_name,d_name from ` employee` as e left join department as d on e.d_id = d.d_id left join
+        region as r on d.r_id = r.r_id
+    </select>
+</mapper>

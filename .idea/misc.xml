@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Java_SE/Mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-03/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-04/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-05/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-06/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-3/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Mybatis-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Mybatis-03/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Mybatis-04/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-Mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Springboot-01/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Srpingboot-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Springboot-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Mybatis-01/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-01/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-Text/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/SpringMvc/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-Mybatis-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/SSM/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/SSM-01/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/Java_SE/Mybatis-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Mybatis-04/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/SSM/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-06/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring-3/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Spring/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/SpringMvc/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Springboot-01/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Springboot-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/Srpingboot-02/pom.xml" />
+        <option value="$PROJECT_DIR$/Java_SE/untitled/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

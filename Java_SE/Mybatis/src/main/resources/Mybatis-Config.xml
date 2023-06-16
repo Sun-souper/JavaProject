@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--引入properties文件-->
+    <properties resource=""/>
+
+
+    <!-- 配置日志（log4j官方配置） -->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+        <!-- 开启延迟加载，懒加载，默认false -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+
+        <!-- 将积极加载改为消息加载即按需加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+
+        <!-- 由于重写了实体类中toString方法，需要排除不相干的方法导致的立即加载情况-->
+        <setting name="lazyLoadTriggerMethods" value="toString()"/>
+    </settings>
+
+    <!--设置类型别名-->
+    <typeAliases>
+        <package name="com.qf.pojo"/>
+    </typeAliases>
+
+
+    <!--environments 配置多个连接数据库的环境 :
+            default : 默认使用的环境的id
+    -->
+    <environments default="development">
+        <environment id="development">
+            <!--事务管理方式-->
+            <transactionManager type="JDBC"/>
+            <!--连接池-->
+            <dataSource type="POOLED">
+                <!--连接数据库所需属性-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///java05"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--引入映射为文件-->
+    <mappers>
+        <mapper resource="UserMapper.xml"/>
+    </mappers>
+
+</configuration>
