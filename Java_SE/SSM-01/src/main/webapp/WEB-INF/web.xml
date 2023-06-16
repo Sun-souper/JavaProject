@@ -23,6 +23,7 @@
             <param-value>classpath:springmvc.xml</param-value>
         </init-param>
     </servlet>
+    <!--url拦截-->
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>*.do</url-pattern>
